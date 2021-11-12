@@ -19,7 +19,7 @@ public class CreateStudentDemo {
 		
 		try {
 			// use session object to save java object
-			Student theStudent = new Student("Asmir", "Kopic", "asmir@email.com");
+			Student theStudent = new Student("Aida", "Kopic", "asmir@email.com");
 			
 			System.out.println("Beggining transaction...");
 			session.beginTransaction();
