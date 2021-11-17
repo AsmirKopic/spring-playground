@@ -10,7 +10,7 @@ import com.tutorial.hibernate.demo.entity.Instructor;
 import com.tutorial.hibernate.demo.entity.InstructorDetails;
 import com.tutorial.hibernate.demo.entity.Student;
 
-public class CreateDemo {
+public class CreateCourse {
 
 	public static void main(String[] args) {
 		
@@ -25,20 +25,22 @@ public class CreateDemo {
 		
 		try {
 			
-			// create instructor object
-			Instructor tempInstructor = new Instructor("Asmir", "Kopic", "asmir@email.com");
-			InstructorDetails tempInstructorDetails = new InstructorDetails("youtube.com", "design");
-			
-			tempInstructor.setInstructorDetail(tempInstructorDetails);
-			
 			session.beginTransaction();
 			
-			// add data to database
-			session.save(tempInstructor);
+			// get instructor from database
+			int instrctorId = 1;
+			Instructor tempInstructor = session.get(Instructor.class, instrctorId);
 			
+			Course courseOne = new Course("Java programming");
+			Course courseTwo = new Course("Spring & Hibernate programming");
+			
+			tempInstructor.add(courseOne);
+			tempInstructor.add(courseTwo);
+			
+			session.save(courseOne);
+			session.save(courseTwo);
 
 			session.getTransaction().commit();
-			System.out.println("Done.");
 			
 		} finally {
 			session.close();
