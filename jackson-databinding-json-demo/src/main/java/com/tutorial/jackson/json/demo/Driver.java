@@ -1,6 +1,7 @@
 package com.tutorial.jackson.json.demo;
 
 import java.io.File;
+import java.util.Iterator;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,7 +20,11 @@ public class Driver {
 			// print data
 			System.out.println("First name = " + theStudent.getFirstName());
 			System.out.println("Last name = " + theStudent.getLastName());
-			System.out.println(theStudent.getLanguages());
+			
+			for (String language : theStudent.getLanguages()) {
+				System.out.println(language);
+			}
+			
 			
 		} catch (Exception exc) {
 			exc.printStackTrace();
