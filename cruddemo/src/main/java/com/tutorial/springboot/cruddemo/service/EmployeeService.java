@@ -1,10 +1,10 @@
-package com.tutorial.springboot.cruddemo.dao;
+package com.tutorial.springboot.cruddemo.service;
 
 import com.tutorial.springboot.cruddemo.entity.Employee;
 
 import java.util.List;
 
-public interface EmployeeDAO {
+public interface EmployeeService {
 
     public List<Employee> findAll();
 
@@ -13,5 +13,4 @@ public interface EmployeeDAO {
     public void save(Employee theEmployee);
 
     public void deleteById(int theId);
-
 }
